@@ -31,6 +31,8 @@ void	print(t_list *structure, const char **format)
 {
 	int	i;
 	i = 0;
+    if (find(format, '.'))
+        print_prec();
 	if (ft_isdigit(**format))
 	{
 		print_width(structure, &format);
@@ -40,6 +42,15 @@ void	print(t_list *structure, const char **format)
 		print_format(structure, *format);
 		(*format)++;
 	}
+}
+
+void    print_prec(t_list *structure, char **format)
+{
+    char    *width;
+    int     i;
+    int     j;
+
+    while ((*format)[i] && (*format)[i] )
 }
 
 void	print_width(t_list *structure, const char **format)
@@ -69,8 +80,6 @@ void	print_width(t_list *structure, const char **format)
 	(*format)++;
 	free(width);
 }
-
-
 
 void    const_struct(t_list *structure, va_list list, const char *format)
 {

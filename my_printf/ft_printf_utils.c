@@ -122,17 +122,35 @@ int     is_format(char c)
         return (0);
 }
 
+int     find(char *str, char c)
+{
+    while (*str && *str != '%')
+    {
+        if (*str == c)
+            return (1);
+        str++;
+    }
+    return (0);
+}
+
 int     ft_atoi(char *num)
 {
-    int i;
-    int n;
+    int 	i;
+    long		n;
+	int			s;
 
     i = 0;
     n = 0;
+	s = 1;
+	if (*num == '-')
+	{
+		s = -1;
+		num++;
+	}
     while (num[i])
     {
         n = n + ((num[i] - '0') * 10);
         i++;
     }
-    return (n);
+    return (s * n);
 }
