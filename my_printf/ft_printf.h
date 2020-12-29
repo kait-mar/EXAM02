@@ -18,6 +18,19 @@ typedef struct s_flag
     int integer2;
 }       t_flag;
 
+int     ft_printf(const char *format, ...);
 void    ft_putchar(char c);
+char    char_num(int n);
+char	*dec_to_hexa(unsigned long long n);
+void	ft_putnbr(int n);
+void	ft_putstr(char *str);
+void    print_format(t_list *structure, const char *format);
+int     is_format(char c);
+void    const_struct(t_list *structure, va_list list, const char *format);
+void	print(t_list *structure, const char **format);
+int		unsign_lenght(unsigned long long n);
+int		ft_isdigit(char c);
+void	print_width(t_list *structure, const char **format);
+int		lenght(int n);
 
 #endif
