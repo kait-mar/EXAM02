@@ -18,7 +18,31 @@ void	ft_putnbr(int n)
 	}
 	if (n < 0)
 	{
-		ft_putchar('-');
+		n *= -1;
+		i++;
+	}
+	i = 0;
+	while (n != 0)
+	{
+		tab[i++] = n % 10 + '0';
+		n /= 10;
+	}
+	while (i-- > 0)
+		ft_putchar(tab[i]);
+}
+
+void	ft_putnbr2(int n)
+{
+	int		tab[100];
+	int		i;
+
+	if (n == 0)
+	{
+		ft_putchar('0');
+		return ;
+	}
+	if (n < 0)
+	{
 		n *= -1;
 	}
 	i = 0;
@@ -136,21 +160,50 @@ int     find(char *str, char c)
 int     ft_atoi(char *num)
 {
     int 	i;
-    long		n;
-	int			s;
+    int		n;
 
     i = 0;
     n = 0;
-	s = 1;
-	if (*num == '-')
-	{
-		s = -1;
-		num++;
-	}
     while (num[i])
     {
-        n = n + ((num[i] - '0') * 10);
+        n = n * 10 + ((num[i] - '0') % 10);
         i++;
     }
-    return (s * n);
+    return (n);
+}
+
+int		ft_lenght(t_list *structure, const char *format)
+{
+	if (*format == 's')
+		return (ft_strlen(structure->s));
+	if (*format == 'd')
+		return (lenght(structure->d));
+	if (*format == 'x')
+		return (ft_strlen(dec_to_hexa(structure->x)));
+	return (0);
+}
+
+int		ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str == 0)
+		return (0);
+	while (str[i])
+		i++;
+	return (i);
+}
+
+int		ft_lenght3(t_list *structure, const char *format)
+{
+	if (*format == 's')
+		return (0);
+	if (*format == 'd' && structure->d < 0)
+		return (1);
+	if (*format == 'd')
+		return (0);
+	if (*format == 'x')
+		return (0);
+	return (0);
 }

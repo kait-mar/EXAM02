@@ -32,5 +32,12 @@ int		unsign_lenght(unsigned long long n);
 int		ft_isdigit(char c);
 void	print_width(t_list *structure, const char **format);
 int		lenght(int n);
+int		ft_lenght(t_list *structure, const char *format);
+void    print_prec(t_list *structure, const char **format);
+int     ft_atoi(char *num);
+int		ft_strlen(char *str);
+void	ft_putnbr2(int n);
+int		ft_lenght3(t_list *structure, const char *format);
+void    print_format2(t_list *structure, const char *format);
 
 #endif
