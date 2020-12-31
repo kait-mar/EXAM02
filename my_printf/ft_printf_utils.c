@@ -19,7 +19,7 @@ void	ft_putnbr(int n)
 	if (n < 0)
 	{
 		n *= -1;
-		i++;
+		ft_putchar('-');
 	}
 	i = 0;
 	while (n != 0)
@@ -146,7 +146,7 @@ int     is_format(char c)
         return (0);
 }
 
-int     find(char *str, char c)
+int     find(const char *str, char c)
 {
     while (*str && *str != '%')
     {
@@ -174,12 +174,20 @@ int     ft_atoi(char *num)
 
 int		ft_lenght(t_list *structure, const char *format)
 {
+	char	*s;
+	int		i;
+
 	if (*format == 's')
 		return (ft_strlen(structure->s));
 	if (*format == 'd')
 		return (lenght(structure->d));
 	if (*format == 'x')
-		return (ft_strlen(dec_to_hexa(structure->x)));
+	{
+		s = dec_to_hexa(structure->x);
+		i = ft_strlen(s);
+		free(s);
+		return (i);
+	}
 	return (0);
 }
 

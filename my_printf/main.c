@@ -2,10 +2,15 @@
 #include <stdio.h>
 int main()
 {
-    char *s;
-    s = "hi";
-    printf("hello world %.6d, yes %x %s\n", 6, 5485846, s);
-    ft_printf("hello world %.6d, yes %x %s\n", 6, 5485846, s);
+  int i;
+  i = 0;
+   // printf("hello world %s, yes %5.5x %s\n", s, -5485846, s);
+    ft_printf("hello world, yes %9.8d %d\n", -5485846, 3);
+    printf("hello world, yes %9.8d %d\n", -5485846, 3);
+    
   // printf("|%5.3d|\n", 6);
+  //precision avec s et x
+  //while (1)
+  //  i++;
   return (0);
 }

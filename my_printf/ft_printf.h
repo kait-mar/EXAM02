@@ -12,11 +12,6 @@ typedef struct s_list
     char            *s;
     unsigned int    x;
 }   t_list;
-typedef struct s_flag
-{
-    int integer1;
-    int integer2;
-}       t_flag;
 
 int     ft_printf(const char *format, ...);
 void    ft_putchar(char c);
@@ -39,5 +34,6 @@ int		ft_strlen(char *str);
 void	ft_putnbr2(int n);
 int		ft_lenght3(t_list *structure, const char *format);
 void    print_format2(t_list *structure, const char *format);
+int     find(const char *str, char c);
 
 #endif
