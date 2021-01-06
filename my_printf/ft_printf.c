@@ -55,7 +55,7 @@ void	print_prec(t_list *structure, const char **format)
 	width[j] = '\0';
 	//add a free for width here
 	j = ft_atoi(width);
-	printf("\n  j == |%d|\n", j);
+	//printf("\n  j == |%d|\n", j);
 	free(width);
 	if (**format == '.')
 		(*format)++;
@@ -71,7 +71,7 @@ void	print_prec(t_list *structure, const char **format)
 	width[i] = '\0';
 	i = ft_atoi(width);
 	free(width);
-	printf("\n|i == %d|\n", i);
+	//printf("\n|i == %d|\n", i);
     if (i == 0 && ((**format == 'd' && structure->d == 0) || (**format == 'x' && structure->x == 0)))
     {
         while (--j >= 0)
@@ -82,8 +82,11 @@ void	print_prec(t_list *structure, const char **format)
         if (i != 0 && **format == 's')
             k = j - ft_lenght(structure, *format);
         else
-            k = j - i - ft_lenght3(structure, *format);
+            k = j - i;
+           // k = j - i - ft_lenght3(structure, *format);
         //printf("|%d|\n", k);
+         if (**format == 'd' && structure->d < 0)
+            k--;
         while (--k >= 0)
             ft_putchar(' ');
         if (**format == 'd' && structure->d < 0)

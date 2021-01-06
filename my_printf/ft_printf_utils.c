@@ -123,12 +123,12 @@ int		lenght(int n)
 	int	i;
 
 	i = 0;
-	if (i == 0)
+	if (n == 0)
 		return (1);
-	if (i < 0)
+	if (n < 0)
 	{
 		n *= -1;
-		i++;
+		//i++;
 	}
 	while (n != 0)
 	{
