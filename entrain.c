@@ -6,7 +6,6 @@
 int g_counter;
 int i;
 int j;
-char	specifier;
 
 void	ft_putchar(char c);
 void	ft_putnbr2(long nbr);
@@ -83,12 +82,9 @@ void	ft_putnbr2(long nbr)
 		ft_putchar(nbr + '0');
 	else
 	{
-		while (nbr != 0)
-		{
 			ft_putnbr(nbr / 10);
 			ft_putchar(nbr % 10 + '0');
 			nbr /= 10;
-		}
 	}
 }
 
@@ -192,14 +188,19 @@ void	dec_to_hexa(unsigned int n)
 	int		i;
 
 	i = 0;
+	if (n == 0)
+	{
+		ft_putchar('0');
+		return ;
+	}
 	while (n != 0)
 	{
 		reverse[i++] = num_char(n % 16);
 		n /= 16;
 	}
-	while (i >= 0)
+	while (--i >= 0)
 	{
-		ft_putchar(reverse[i--]);
+		ft_putchar(reverse[i]);
 	}
 }
 
@@ -393,6 +394,8 @@ void	print_width(char **format, va_list list)
 	if (**format == 's')
 	{
 		s = va_arg(list, char *);
+		if (s == 0)
+			s = "(null)";
 		print_space(i - ft_strlen(s));
 		ft_putstr(s);
 	}
@@ -404,6 +407,7 @@ void	print_width(char **format, va_list list)
 	}
 	else if (**format == 'x')
 	{
+		x = va_arg(list, unsigned int);
 		print_space(i - len_hexa(x));
 		dec_to_hexa(x);
 	}
@@ -413,3 +417,9 @@ void	print_width(char **format, va_list list)
 		ft_putchar(**format);
 	}
 }
+/*
+int	main()
+{
+	printf("x10w %10x %10x %10x %10x %10x %10x %10x %10x\n", 0, 42, 1, 4554, 2147483647, (int)2147483648, (int)-2147483648, (int)-2147483649);
+	ft_printf("x10w %10x %10x %10x %10x %10x %10x %10x %10x\n", 0, 42, 1, 4554, 2147483647, (int)2147483648, (int)-2147483648, (int)-2147483649);
+}*/
