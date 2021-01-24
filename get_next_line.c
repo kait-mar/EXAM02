@@ -117,7 +117,7 @@ int		get_next_line(int fd, char **line)
 		{
 			free(s);
 			s = temp;
-		}	
+		}
 	}
 	free(buff);
 	if (s)
@@ -127,6 +127,6 @@ int		get_next_line(int fd, char **line)
 		s = NULL;
 	}
 	else
-		*line = ft_strdup("");	
+		*line = ft_strdup("");
 	return 0;
 }
